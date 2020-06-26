@@ -12,7 +12,9 @@ struct MapView: UIViewRepresentable {
     var coordinate: CLLocationCoordinate2D
 
     func makeUIView(context: Context) -> MKMapView {
-        MKMapView(frame: .zero)
+        let mapView = MKMapView(frame: .zero)
+        mapView.isUserInteractionEnabled = false
+        return mapView
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
