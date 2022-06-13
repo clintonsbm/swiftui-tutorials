@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct DetailsView: View {
+struct DetailsView: View {  
   let index: Int
   let totalOfNotes: Int
   let note: Note
   
   var body: some View {
     Text(note.text)
-      .lineLimit(3)
       .navigationTitle("\(index+1)/\(totalOfNotes)")
   }
 }

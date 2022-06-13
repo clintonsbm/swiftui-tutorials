@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @AppStorage("lineCount") var lineCount = 1
   
   @State private var notes = [Note]()
   @State private var text = ""
@@ -23,6 +24,8 @@ struct ContentView: View {
           notes.append(note)
           
           text = ""
+          
+          saveNotes()
         } label: {
           Image(systemName: "plus")
             .padding()
@@ -36,9 +39,15 @@ struct ContentView: View {
         ForEach(0..<totalOfNotes, id: \.self) { index in
           NavigationLink(destination: DetailsView(index: index, totalOfNotes: totalOfNotes, note: notes[index])) {
             Text(notes[index].text)
+              .lineLimit(lineCount)
           }
         }
         .onDelete(perform: delete)
+        
+        Button("Lines: \(lineCount)") {
+          lineCount += 1
+          lineCount = lineCount == 4 ? 1 : lineCount
+        }
         
         NavigationLink(destination: CreditsView()) {
           Image(systemName: "info.circle")
@@ -49,12 +58,39 @@ struct ContentView: View {
       }
     }
     .navigationTitle("NoteDictate")
+    .onAppear(perform: loadNotes)
   }
   
   private func delete(offsets: IndexSet) {
-    withAnimation {
-      notes.remove(atOffsets: offsets)
+    notes.remove(atOffsets: offsets)
+    saveNotes()
+  }
+  
+  private func saveNotes() {
+    DispatchQueue.main.async {
+      do {
+        let data = try JSONEncoder().encode(notes)
+        let url = getDocumentsDirectory().appendingPathComponent("notes")
+        try data.write(to: url)
+      } catch {
+        print("Save failed with error: ", error)
+      }
     }
+  }
+  
+  private func loadNotes() {
+    do {
+      let url = getDocumentsDirectory().appendingPathComponent("notes")
+      let data = try Data(contentsOf: url)
+      notes = try JSONDecoder().decode([Note].self, from: data)
+    } catch {
+      print("Load notes failed with error: ", error)
+    }
+  }
+  
+  private func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
   }
 }
 
