@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4C2F8872857FF5F0036A887 /* CurrenciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2F8862857FF5F0036A887 /* CurrenciesView.swift */; };
+		B4C2F8892857FF860036A887 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2F8882857FF860036A887 /* MainView.swift */; };
+		B4C2F88D28580EF10036A887 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2F88C28580EF10036A887 /* ResultView.swift */; };
 		B4E4FCD928551FF100361E9E /* Project4 WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B4E4FCD828551FF100361E9E /* Project4 WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B4E4FCDE28551FF300361E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E4FCDD28551FF300361E9E /* Assets.xcassets */; };
 		B4E4FCE428551FF400361E9E /* Project4 WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4E4FCE328551FF400361E9E /* Project4 WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -60,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B4C2F8862857FF5F0036A887 /* CurrenciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesView.swift; sourceTree = "<group>"; };
+		B4C2F8882857FF860036A887 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B4C2F88C28580EF10036A887 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		B4E4FCD428551FF100361E9E /* Project4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E4FCD828551FF100361E9E /* Project4 WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project4 WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E4FCDD28551FF300361E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,8 +119,11 @@
 		B4E4FCE728551FF400361E9E /* Project4 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B4E4FCE828551FF400361E9E /* ContentView.swift */,
 				B4E4FCEA28551FF400361E9E /* Project4App.swift */,
+				B4C2F8882857FF860036A887 /* MainView.swift */,
+				B4E4FCE828551FF400361E9E /* ContentView.swift */,
+				B4C2F8862857FF5F0036A887 /* CurrenciesView.swift */,
+				B4C2F88C28580EF10036A887 /* ResultView.swift */,
 				B4E4FCEC28551FF400361E9E /* ComplicationController.swift */,
 				B4E4FCEE28551FF500361E9E /* Assets.xcassets */,
 				B4E4FCF328551FF500361E9E /* Info.plist */,
@@ -259,8 +268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4E4FCEB28551FF400361E9E /* Project4App.swift in Sources */,
+				B4C2F8872857FF5F0036A887 /* CurrenciesView.swift in Sources */,
 				B4E4FCE928551FF400361E9E /* ContentView.swift in Sources */,
+				B4C2F8892857FF860036A887 /* MainView.swift in Sources */,
 				B4E4FCED28551FF400361E9E /* ComplicationController.swift in Sources */,
+				B4C2F88D28580EF10036A887 /* ResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
