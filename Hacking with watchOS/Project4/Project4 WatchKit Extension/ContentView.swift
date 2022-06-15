@@ -35,7 +35,7 @@ struct ContentView: View {
           .labelsHidden()
           
           NavigationLink("Go") {
-            ResultView(amount: amount, currency: selectedCurrency)
+            ResultView(amount: amount, baseCurrency: selectedCurrency)
           }
           .frame(width: geo.size.width * 0.3)
         }
