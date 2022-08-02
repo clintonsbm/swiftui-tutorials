@@ -11,15 +11,7 @@ import SwiftUI
 struct project5App: App {
   var body: some Scene {
     WindowGroup {
-      NavigationView {
-        TabView {
-          ContentView()
-            .tabItem {
-              Text("Hey")
-            }
-          ConfigurationView()
-        }
-      }
+        MainView()
     }
   }
 }

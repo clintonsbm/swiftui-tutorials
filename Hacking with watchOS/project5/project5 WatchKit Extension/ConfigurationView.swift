@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ConfigurationView: View {
+    private static let isColorBlingKey = "is_color_blind"
+    
+    @State private var isColorBlind = UserDefaults.standard.bool(forKey: Self.isColorBlingKey)
+    
     var body: some View {
-      Text("Aaa")
+        Toggle(isOn: $isColorBlind) {
+            Text("Color Blind mode")
+        }.navigationTitle("Options")
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct ConfigurationView_Previews: PreviewProvider {
     static var previews: some View {
         ConfigurationView()
     }
