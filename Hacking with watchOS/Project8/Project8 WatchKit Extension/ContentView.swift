@@ -25,7 +25,7 @@ struct ContentView: View {
     
     // MARK: Propreties
     
-    private let numberOfRounds = 1
+    private let numberOfRounds = 3
     
     private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
     
@@ -54,7 +54,8 @@ struct ContentView: View {
             Button("Enter \(Int(currentSafeValue))", action: nextTapped)
             
             Text("Time \(time)")
-        }.onReceive(timer) { newTime in
+        }
+        .onReceive(timer) { newTime in
             guard !gameOver else { return }
             currentTime = newTime
         }.alert(isPresented: $gameOver) {
