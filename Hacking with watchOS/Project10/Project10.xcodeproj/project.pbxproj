@@ -14,8 +14,6 @@
 		BB8E7FBE289C7100002614F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8E7FBD289C7100002614F0 /* Preview Assets.xcassets */; };
 		BB8E7FC9289C712D002614F0 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E7FC8289C712D002614F0 /* WorkoutView.swift */; };
 		BB8E7FCC289C9230002614F0 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E7FCB289C9230002614F0 /* WorkoutManager.swift */; };
-		BB8E7FD0289C979F002614F0 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E7FCF289C979F002614F0 /* SessionHandler.swift */; };
-		BB8E7FD2289C985A002614F0 /* BuilderHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E7FD1289C985A002614F0 /* BuilderHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +50,6 @@
 		BB8E7FC8289C712D002614F0 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		BB8E7FCA289C91B7002614F0 /* Project10 Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project10 Watch App.entitlements"; sourceTree = "<group>"; };
 		BB8E7FCB289C9230002614F0 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
-		BB8E7FCF289C979F002614F0 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
-		BB8E7FD1289C985A002614F0 /* BuilderHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				BB8E7FCB289C9230002614F0 /* WorkoutManager.swift */,
-				BB8E7FCF289C979F002614F0 /* SessionHandler.swift */,
-				BB8E7FD1289C985A002614F0 /* BuilderHandler.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -223,11 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB8E7FB9289C70FF002614F0 /* ContentView.swift in Sources */,
-				BB8E7FD2289C985A002614F0 /* BuilderHandler.swift in Sources */,
 				BB8E7FCC289C9230002614F0 /* WorkoutManager.swift in Sources */,
 				BB8E7FC9289C712D002614F0 /* WorkoutView.swift in Sources */,
 				BB8E7FB7289C70FF002614F0 /* Project10App.swift in Sources */,
-				BB8E7FD0289C979F002614F0 /* SessionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

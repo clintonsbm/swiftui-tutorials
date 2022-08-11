@@ -10,35 +10,41 @@ import HealthKit
 
 struct ContentView: View {
     
+    // MARK: Models
+    
+    struct Activity: Identifiable {
+        let id = UUID()
+        let name: String
+        let type: HKWorkoutActivityType
+    }
+    
     // MARK: States
     
     @StateObject var workoutManager = WorkoutManager.shared
-    @State private var selectedActivity = 0
     
     // MARK: Propreties
     
-    private let activities: [(name: String, type: HKWorkoutActivityType)] = [
-        ("Cycling", .cycling),
-        ("Running", .running),
-        ("Wheelchair", .wheelchairRunPace)
+    private let activities: [Activity] = [
+        Activity(name: "Cycling", type: .cycling),
+        Activity(name: "Running", type: .running),
+        Activity(name: "Wheelchair", type: .wheelchairRunPace)
     ]
     
     var body: some View {
         switch workoutManager.state {
         case .active, .paused:
-            WorkoutView()
+            WorkoutView(workoutManager: workoutManager)
         case .inactive:
             VStack {
-                Picker("Choose an activity", selection: $selectedActivity) {
-                    ForEach(0..<activities.count, id: \.self) { index in
-                        Text(activities[index].name)
-                    }
-                }
+                Text("Select a activity")
                 
-                Button("Start Workout") {
-                    guard HKHealthStore.isHealthDataAvailable() else { return }
-                    workoutManager.set(activity: activities[selectedActivity].type)
-                    workoutManager.beginWorkout()
+                List(activities) { activity in
+                    Text(activity.name)
+                        .onTapGesture {
+                            guard HKHealthStore.isHealthDataAvailable() else { return }
+                            workoutManager.set(activity: activity.type)
+                            workoutManager.beginWorkout()
+                        }
                 }
             }
         }
