@@ -18,7 +18,7 @@ struct ContentView: View {
             Button("Complication", action: sendComplication)
             VStack {
                 Text("Text received: ")
-                Text(connectivity.receivedText)
+                Text(connectivity.receivedText.isEmpty ? "empty" : connectivity.receivedText)
             }
         }
     }
@@ -37,7 +37,14 @@ struct ContentView: View {
     }
     
     private func sendFile() {
+        let fileManager = FileManager.default
+        let fileURL = Helper.getDocumentsDirectory().appendingPathComponent("saved_file", conformingTo: .fileURL)
         
+        if !fileManager.fileExists(atPath: fileURL.path) {
+            try? "Example file".write(toFile: fileURL.path, atomically: true, encoding: .utf8)
+        }
+        
+        connectivity.sendFile(on: fileURL)
     }
     
     private func sendComplication() {

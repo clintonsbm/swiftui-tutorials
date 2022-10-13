@@ -23,6 +23,8 @@
 		BB070A1B28AC44BD0020D2E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB070A1A28AC44BD0020D2E6 /* Preview Assets.xcassets */; };
 		BB1C452E28AC4D2800152FB5 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C452D28AC4D2800152FB5 /* Connectivity.swift */; };
 		BBB4363928AC538F001EE39A /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1C452D28AC4D2800152FB5 /* Connectivity.swift */; };
+		BBDF632128F8C3B800027112 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF632028F8C3B800027112 /* Helper.swift */; };
+		BBDF632228F8C3B800027112 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF632028F8C3B800027112 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,7 @@
 		BB070A1C28AC44BD0020D2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB070A1D28AC44BD0020D2E6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		BB1C452D28AC4D2800152FB5 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		BBDF632028F8C3B800027112 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1C452D28AC4D2800152FB5 /* Connectivity.swift */,
+				BBDF632028F8C3B800027112 /* Helper.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -321,6 +325,7 @@
 				BB0709F528AC44BB0020D2E6 /* ContentView.swift in Sources */,
 				BB0709F328AC44BB0020D2E6 /* project12App.swift in Sources */,
 				BB1C452E28AC4D2800152FB5 /* Connectivity.swift in Sources */,
+				BBDF632128F8C3B800027112 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB070A1228AC44BC0020D2E6 /* NotificationController.swift in Sources */,
+				BBDF632228F8C3B800027112 /* Helper.swift in Sources */,
 				BB070A1028AC44BC0020D2E6 /* ContentView.swift in Sources */,
 				BBB4363928AC538F001EE39A /* Connectivity.swift in Sources */,
 				BB070A1628AC44BC0020D2E6 /* ComplicationController.swift in Sources */,

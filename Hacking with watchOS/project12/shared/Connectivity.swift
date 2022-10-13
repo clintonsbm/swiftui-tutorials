@@ -59,6 +59,12 @@ class Connectivity: NSObject, ObservableObject {
             receivedText = "Alert! Updating app context failed"
         }
     }
+    
+    func sendFile(on url: URL) {
+        let session = WCSession.default
+        guard session.activationState == .activated else { return }
+        session.transferFile(url, metadata: nil)
+    }
 }
 
 // MARK: WCSessionDelegate
@@ -103,6 +109,23 @@ extension Connectivity: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         DispatchQueue.main.async {
             self.receivedText = "Received context \(applicationContext)"
+        }
+    }
+    
+    func session(_ session: WCSession, didReceive file: WCSessionFile) {
+        let fileManager = FileManager.default
+        let fileURL = Helper.getDocumentsDirectory().appendingPathComponent("saved_file", conformingTo: .fileURL)
+        
+        do {
+            if fileManager.fileExists(atPath: fileURL.path) {
+                try fileManager.removeItem(at: fileURL)
+            }
+            
+            try fileManager.copyItem(at: file.fileURL, to: fileURL)
+            let content = try String(contentsOf: fileURL)
+            receivedText = "Received file with content:\n\(content)"
+        } catch {
+            receivedText = "File transfer failed with error: \(error.localizedDescription)"
         }
     }
 }
