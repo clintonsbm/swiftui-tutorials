@@ -14,7 +14,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
         let descriptors = [
-            CLKComplicationDescriptor(identifier: "complication", displayName: "project12", supportedFamilies: CLKComplicationFamily.allCases)
+            CLKComplicationDescriptor(identifier: "complication", displayName: "project12", supportedFamilies: [.circularSmall])
             // Multiple complication support can be added here with more descriptors
         ]
         
@@ -42,7 +42,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+        let currentText = UserDefaults.standard.string(forKey: "complication_number") ?? "?"
+        let text = CLKSimpleTextProvider(text: currentText)
+        let template = CLKComplicationTemplateCircularSmallSimpleText(textProvider: text)
+        let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+        handler(entry)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -54,6 +58,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        let text = CLKSimpleTextProvider(text: "?")
+        let template = CLKComplicationTemplateCircularSmallSimpleText(textProvider: text)
+        handler(template)
     }
 }
